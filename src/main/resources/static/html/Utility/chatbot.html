@@ -1,0 +1,276 @@
+<html>
+<head>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8">
+	<title>쇼팅톡 </title>
+	
+	<!-- JQUERY 순서 : JQUERY다음 CDN-->
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="../../js/my.js"></script>
+	
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
+	
+	
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/ToolStyle.css">
+	<link rel="stylesheet" href="../../css/font.css">
+
+  	<script type="text/javascript" src="../../js/my.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    	
+
+
+</head>
+
+<body><!-- style="height:100%; background:#BBCCDD;"- -->
+
+<div id="wrap">
+		<div id="header-top">
+			   <div class="hTopIn"> 
+			     <div class="adver"><br>광고등등..여기여기</div> 
+			     <input type="button" value="▼" class="down" title="메뉴"> 
+			   </div>				
+				<script>
+				//	$(".adver").hide(); //우선 배너는 안보이게끔 숨긴다.
+					$(".hTopIn .down").click(function(){ // 버튼을 클릭했을 때
+					$(".adver").slideToggle(300); //토글작동!!
+					return false; 
+					});
+				</script>
+		</div>
+	<!-- ================= 첫 번째 구역(header)  ================= -->
+		<div id="header">
+			<div class="container">
+				<div class="header">
+				<div id="loginArea">
+					<ul class="list2">
+					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('../../html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+		</div>	
+		<div id="header-subArea">
+					<nav id="nav">
+						<ul class="gnb">
+							<li class="logo"><a href="../../index.html"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></a></li>						
+							<li class="menu" ><a href="../../html/ProductList/ProductList.html" >국내도서</a></li>
+							<li class="menu"><a href="#" >챗봇 서비스</a></li>
+							<li class="menu" ><a href="../../html/Utility/cameraWeb.html">얼굴인식 서비스</a></li>
+							<li class="menu"><a href="../../html/recommend/recommend.html">추천 서비스</a></li>												
+						</ul>
+					</nav>
+				<div id="searchBar">	
+					<div class="search-Bar">
+						<label>
+							<input type="search" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s"/>
+						</label>
+							<button type="submit" class="search-submit"><span class="screen-reader-text"><i class="fas fa-search"></i></span></button>
+					</div>
+				</div>								
+		</div>
+		
+<!--  ================= //header  ================= -->
+	<div id="cont1">
+		<div id="left-section">
+			<div id="side_category">
+				<div class="categroy_box">
+					<h2><strong><i class="fas fa-indent fa-2x"></i></strong></h2>
+					<ul>
+						<li>
+							<a href="#section1" class="scroll">얼굴인식 서비스</a>
+						</li>
+						<li>
+							<a href="#section2" class="scroll">이용방법</a>
+						</li>
+						<li>
+							<a href="#section3" class="scroll">사용해보기</a>
+						</li>																																																																																																												
+					</ul>				
+				</div>
+			</div>
+<!-- ================= //side_category ================= -->
+			<script>
+			
+			jQuery(document).ready(function($) {
+			
+			$(".scroll").click(function(event){            
+			
+			event.preventDefault();
+			
+			$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+			
+			});
+			
+			});
+			
+			</script>
+		</div>
+		
+		<div id="right-section">	
+			<div id="section1">
+			
+			</div>
+
+			<div id="section2">
+				   <div class="main_text2">
+				        <h1>이용 방법</h1>
+				        <div class="contents2">
+				        	1. 아래의 채팅 화면 대화창에 대화를 입력해주세요<br>
+				        	2-1. <span>전송</span></a> [버튼]을 클릭합니다.<br>
+				        	2-2. <span><i class="fas fa-microphone fa-1x"></i></span></a> [버튼]을 클릭합니다.<br>				        	
+				        	2-3. <span><i class="fas fa-file-import fa-1x"></i></span></a> [버튼]을 클릭합니다.<br>				        	
+				        	3. 상담원이 응답을 합니다. <br>
+				        </div>
+				      </div>				
+			</div>			
+	
+			<div id="section3">
+					<div id="background">
+						<img src="../../img/Chatbot_01.png" style="width:100%; height:100%;">
+					
+					</div>
+				
+				
+					
+					<div id="chatbot">
+						<div class="chatbot-UI">
+							<div class="chat-top"><span>쇼팅톡</span></div>
+							
+							<div class="chat-main">
+							<br>
+							상담원 쇼톡 : <p></p>
+					
+							</div>
+							
+								
+								
+							<div class="chat-text">
+								<input type="text" id="chat" placeholder="내용을 입력해주세요"><br>
+								<button type="button" id="chatBtn" value="chatBtn">전송</button>
+								<button type="button" id="sayBtn" value="sayBtn"><i class="fas fa-microphone fa-2x"></i></button>
+								<button type="button" id="saySubmitBtn" value="saySubmitBtn"><i class="fas fa-file-import fa-2x"></i></button>
+							</div>
+				<!-- 			녹음 종료, 대화 내보내기  -->
+							
+							<div class="exitBtn">
+								<a href="../../index.html"><i class="fas fa-circle fa-2x"></i></a>
+							</div>
+						</div>		
+					</div>		
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+<script>
+$(function(){
+	var login=$.cookie('logined');
+		$("#loginArea").html(login);
+});
+</script>
+
+<script>
+
+
+const record = document.getElementById("sayBtn")
+const stop = document.getElementById("saySubmitBtn")
+const audioCtx = new(window.AudioContext || window.webkitAudioContext)() // 오디오 컨텍스트 정의
+const analyser = audioCtx.createAnalyser()
+
+function makeSound(stream) {
+    const source = audioCtx.createMediaStreamSource(stream)
+    source.connect(analyser)
+    analyser.connect(audioCtx.destination)
+
+}
+
+if (navigator.mediaDevices) {
+    console.log('마이크 연결 됨')
+
+    const constraints = {
+        audio: true
+    }
+    let chunks = []
+
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then(stream => {
+
+            const mediaRecorder = new MediaRecorder(stream)
+       
+            record.onclick = () => {
+                mediaRecorder.start()
+                console.log(mediaRecorder.state)
+                console.log("recorder started")
+                record.style.background = "red"
+                record.style.color = "black"
+            }
+
+            stop.onclick = () => {
+                mediaRecorder.stop()
+                console.log(mediaRecorder.state)
+                console.log("recorder stopped")
+                record.style.background = ""
+                record.style.color = ""
+            }
+            
+            mediaRecorder.onstop = e => {
+                console.log("data available after MediaRecorder.stop() called.")
+
+                const blob = new Blob(chunks, {
+                    'type': 'audio/ogg codecs=opus'
+                })
+                chunks = []
+                const audioURL = URL.createObjectURL(blob)
+                console.log("recorder stopped")
+                
+            const fileName = 'chatbot.wav';
+			let formData = new FormData();
+			formData.append('file', blob, fileName);
+			
+			$.ajax({
+				type : 'post',
+				url : '../../upload',
+				cache : false,
+				data : formData,
+				processData : false,
+				contentType : false,
+				success : function(data) {
+					alert('Uploaded !!');
+				}	
+                
+            });
+            }
+
+            mediaRecorder.ondataavailable = e => {
+                chunks.push(e.data)
+            }
+        })
+        .catch(err => {
+            console.log('The following error occurred: ' + err)
+        })
+    
+//    var os=require('os');
+//    var homedir=os.homedir();
+//	var audio = new Audio(homedir+"/shotting/chatbot.wav");
+//	audio.play();
+    
+}           
+</script>
+
+</html>

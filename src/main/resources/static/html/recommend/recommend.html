@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!------------- 쇼핑몰 haed 시작(css, js, 외부jquery link, favicon 등)  -------------->
+<head>
+
+	<meta charset="UTF-8">
+	 <!-- '반응형 웹'-->
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	 <!-- 익스플로러 최신버전으로 랜더링 -->
+	 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	 	 
+	 <!-- favicon -->
+	 	 
+	<title>추천 받아보기</title>
+	
+<!-- ================= #1 External css/js ================= -->
+  	<!-- JQUERY 순서 : JQUERY다음 CDN-->
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	
+
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
+	
+
+	
+<!-- ================= #2 Internal css/js ================= -->	
+  	<!-- 쇼핑몰 CSS -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/recommend.css">
+	
+	<link rel="stylesheet" href="../../css/font.css">
+	<link rel="stylesheet" href="../../css/font-awesome.css">
+
+  	<!-- #2.1 쇼핑몰 js -->
+  	<!-- swiper js --> 
+  	<script src="../../js/ie-checker.js"></script>
+  	
+  	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script> 	
+	
+	<!-- #2.2 기능 js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="../../js/Recommend/recommend.js"></script>
+
+</head>
+<!-- ================= 쇼핑몰 body 시작 ================= -->
+<body>
+<!-- ================= 전체포장(wrap) ================= -->
+	<div id="wrap">
+<!-- ================= header-top  ================= -->
+		<div id="header-top">
+			   <div class="hTopIn"> 
+			     <div class="adver"><br>광고등등..여기여기</div> 
+			     <input type="button" value="▼" class="down" title="메뉴"> 
+			   </div>				
+				<script>
+				//	$(".adver").hide(); //우선 배너는 안보이게끔 숨긴다.
+					$(".hTopIn .down").click(function(){ // 버튼을 클릭했을 때
+					$(".adver").slideToggle(300); //토글작동!!
+					return false; 
+					});
+				</script>
+		</div>
+	<!-- ================= 첫 번째 구역(header)  ================= -->
+		<div id="header">
+			<div class="container">
+				<div class="header">
+					<ul class="list2">
+					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('../../html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>	
+	<div id="header-subArea">
+			<nav id="nav">
+						<ul class="gnb">
+							<li class="logo"><a href="../../index.html"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></a></li>						
+							<li class="menu" ><a href="../../html/ProductList/ProductList.html" >국내도서</a></li>
+							<li class="menu"><a href="../../html/Utility/chatbot.html" >챗봇 서비스</a></li>
+							<li class="menu" ><a href="../../html/Utility/cameraWeb.html">얼굴인식 서비스</a></li>
+							<li class="menu"><a href="#">추천/검색 서비스</a></li>												
+						</ul>
+			</nav>
+			<div id="searchBar">
+				<div class="search-Bar">
+					<form role="search" method="get" class="search-form" action="http://www.google.com">
+						<label>
+							<input type="search" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s">	
+						</label>
+						<button type="submit" class="search-submit"><span class="screen-reader-text"><i class="fas fa-search"></i></span></button>
+					</form>
+				</div>				
+			</div>							
+	</div>
+<div style="text-align:center; margin-top:5px;"></div>		
+		
+<!-- ================= 두 번째 구역(banner) ================= -->
+
+	<div id="cont1">
+		<div id="left-section">
+			<div id="side_category">
+				<div class="categroy_box">
+					<h2><strong><i class="fas fa-indent fa-2x"></i></strong></h2>
+					<ul>
+						<li>
+							<a href="#section1" class="scroll">도서 추천 서비스</a>
+						</li>
+						<li>
+							<a href="#section1" class="scroll">이용방법</a>
+						</li>
+						<li>
+							<a href="#section3" class="scroll">사용해보기</a>
+						</li>
+						<li>
+							<a href="#section4" class="scroll">추천도서</a>
+						</li>																																																																																																																			
+					</ul>				
+				</div>
+			</div>
+<!-- ================= //side_category ================= -->
+			<script>
+			
+			jQuery(document).ready(function($) {
+			
+			$(".scroll").click(function(event){            
+			
+			event.preventDefault();
+			
+			$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+			
+			});
+			
+			});
+			
+			</script>
+		</div>
+		
+		<div id="right-section">
+			<div id="section1">
+				<div id="background">
+					<img src="../../img/reco_01.jpg">
+				</div>			
+			</div>
+			
+<!--  			
+			<div id="section2">
+				   <div class="main_text1">
+				        <h1>추천 받아 보기</h1>
+				        <div class="contents1">
+				        추천 받아 보기를 통해서 원하는 도서를 입력하고<br>
+				        그것과 비슷한 유형의 도서를 추천받습니다.
+				        </div>
+				        <div class="service">
+				          <div class="photo">
+				            <img src="../../g/reco_05.png" style="width:500; height:200;">     
+				          </div>
+				        </div>
+				      </div>			
+			
+			</div>
+-->			
+			<div id="section3">
+				   <div class="main_text2">
+				        <h1>이용 방법</h1>
+				        <div class="contents2">
+				        	1. 아래의 검색창에 찾고자 하는 도서를 입력합니다.<br>
+				        	2. <span><i class="fas fa-search"></i></span></a> [버튼]을 클릭합니다.<br>
+				        	3. 잠시후 추천 도서 목록을 제공 받습니다. <br>
+				        </div>
+				      </div>				
+			</div>
+			
+			
+			
+			<div id="section4">
+				<div class="prod_sort_area">	
+					<div class="prod_sortNum">
+						<span class="prod_sortLft">
+							<div class="prod_page">
+								<input type="text" class="form-control" id="book_title"  placeholder="내용을 입력해 주세요" value="">
+								<button type="submit" id="reco_btn" class="btn btn-block mybtn btn-primary tx-tfm recommend"><i class="fas fa-search fa-2x"></i></button>
+							</div>	
+						</span>
+					</div>
+				    <input id="category_checkAll" name="category_checkAll" type="checkbox" value="" style="display:none">    
+				</div>
+			</div>
+			
+				<div class="section_title">
+					<h3>검색 결과
+						<span>검색하신 책이에요</span>
+					</h3>
+				</div> 		
+				<div id="prod">							
+				</div>		
+									
+	
+
+				<div class="section_title">
+					<h3>추천 도서 목록
+						<span>쇼팅이 추천하는 도서목록</span>
+					</h3>
+				</div> 			
+				<div id="prod_list">
+							
+				</div>												
+	
+			
+					
+		</div>
+
+		
+		
+			
+
+	
+<!-- ================= f//r ================= -->                                       		
+		</div>
+
+		
+<!-- ================= footer ================= -->                                       	
+	<div id="footer">
+			<div id="footer_info">
+				<div class="container">
+                    <div class="info">
+                        <div class="f_nav">
+                            <ul>
+                                <li><a class="nav-link" href="#"onclick="window.open('html/main.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=750,height=400');">회사소개</a></li>
+                                <li><a href="#">웹이용약관</a></li>
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">위치기반서비스 이용약관</a></li>
+                                <li><a href="#"><strong>청소년보호정책</strong></a></li>
+                                <li><a href="#"><strong>이메일주소무단수집거부</strong></a></li>          	
+                                                      
+                            </ul>
+                        </div>
+                        <address class="f_address">
+                            <span>㈜쇼팅 본사 : 서울특별시 강남구 현주로 508 12-17층(역삼동, 서울상록빌딩) 대표이사: 이상묵</span>
+                            <span>이메일상담 </span>
+                            <span>자주하는 질문 </span>
+                            <span>사업자번호 104-86-56659 </span><br>
+                            <span>대표전화 : 1544-1544	평일 : 09:00~20:00   휴일 : 09:00~1800(점심시간 12:00~13:00제외) </span>
+                            <span>팩스:0502-123123-123213 </span>
+                            <span>이메일: multicampus@multicampus.com </span><br>
+                            <span>COPYRIGHT&copy; 2021 Shotting. All RIGHTS RESERVED</span>
+                        </address>
+                    </div>
+                </div>                
+			</div>
+<!-- ================= // footer-info ================= -->                                       			
+		</div>
+<!-- ================= // footer ================= -->                                       				
+	</div>
+	
+<!-- =================★ //wrap 반드시 확인 !!!!!!!!!!!!! ================= -->                                       				
+</body>
+
+
+<script>
+$(function(){
+	var login=$.cookie('logined');
+		$("#logoutDiv").html(login);
+});
+</script>
+
+
+</html>

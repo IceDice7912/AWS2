@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!------------- 쇼핑몰 haed 시작(css, js, 외부jquery link, favicon 등) -------------->
+<head>
+	
+	<meta charset="UTF-8">
+	<!-- '반응형 웹'-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- 익스플로러 최신버전으로 랜더링 -->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+
+<title>온라인 쇼핑몰 - 쇼팅</title>
+
+<!-- ================= #1 External css/js ================= -->
+	<!-- JQUERY 순서 : JQUERY다음 CDN-->
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	
+	<!-- swiper -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
+		
+
+<!-- ================= #2 Internal css/js ================= -->
+	<!-- 쇼핑몰 CSS -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/ProductDetail/ProductDetailStyle.css">
+	<link rel="stylesheet" href="../../css/BannerStyle.css">
+	<link rel="stylesheet" href="../../css/font.css">
+	<link rel="stylesheet" href="../../css/font-awesome.css">
+	
+	<!-- #2.1 쇼핑몰 js -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="../../js/ProductList/ListPage.js">
+	
+	<!-- #2.2 기능 js -->
+	<script type="text/javascript" src="../../js/my.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	
+
+</head>
+<!-- ================= 쇼핑몰 body 시작 ================= -->
+<body>
+<!-- ================= 전체포장(wrap) ================= -->
+<div id="wrap">
+<!-- ================= header-top ================= -->
+<div id="header-top">
+	<div id="header-top">
+			   <div class="hTopIn"> 
+			     <div class="adver"><br></div> 
+			     <input type="button" value="▼" class="down" title="메뉴"> 
+			   </div>				
+				<script>
+				//	$(".adver").hide(); //우선 배너는 안보이게끔 숨긴다.
+					$(".hTopIn .down").click(function(){ // 버튼을 클릭했을 때
+					$(".adver").slideToggle(300); //토글작동!!
+					return false; 
+					});
+				</script>
+		</div>
+	<!-- ================= 첫 번째 구역(header)  ================= -->
+		<div id="header">
+			<div class="container">
+				<div class="header">
+				<div id="loginArea">
+					<ul class="list2">
+					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('../../html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+		</div>	
+		<div id="header-subArea">
+					<nav id="nav">
+						<ul class="gnb">
+							<li class="logo"><a href="../../index.html"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></a></li>						
+							<li class="menu" ><a href="html/ProductList/ProductList.html" >국내도서</a></li>
+							<li class="menu"><a href="#" onclick="window.open('../../html/Utility/chatbot.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">챗봇 서비스</a></li>
+							<li class="menu" ><a href=""onclick="window.open('../../html/Utility/cameraWeb.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">얼굴인식 서비스</a></li>
+							<li class="menu"><a href="" onclick="window.open('../../html/recommend/recommend.html','toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">추천 서비스</a></li>												
+						</ul>
+					</nav>
+				<div id="searchBar">	
+					<div class="search-Bar">
+						<label>
+							<input type="search" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s"/>
+						</label>
+							<button type="submit" class="search-submit"><span class="screen-reader-text"><i class="fas fa-search"></i></span></button>
+					</div>
+				</div>								
+		</div>
+<!-- ================= //header ================= -->
+<div style="text-align:center; margin-top:5px;"></div>		
+
+
+	<div id="banner">
+		 <div class="container" >
+		  <!-- Swiper -->
+		  <div class="swiper-container banner">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_01.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_02.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_03.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_04.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_05.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_07.jpg" class="swiper-lazy" alt=""></div>
+		    </div>
+		<!-- Add Pagination (부가요소) -->	  
+		  <!-- pagination -->  
+		    <div class="swiper-pagination"></div>
+		    
+		  <!-- 양쪽 넘기는 버튼 -->
+    		<div class="swiper-button-prev"></div>
+    		<div class="swiper-button-next"></div>
+		  <!-- 하단 스크롤바 -->		
+    		<div class="swiper-scollbar"></div>
+		 </div>
+	    <div thumbsSlider="" class="swiper-container mySwiper">
+	      <div class="swiper-wrapper">
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_01.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_02.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_03.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_04.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_05.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_07.jpg" />
+	        </div>
+	        </div>
+	      </div>
+	    </div>		 
+		 
+<!-- ================= Swiper js ================= -->
+		  <script>
+	      var swiper = new Swiper(".mySwiper", {
+	     	  spaceBetween: 5,
+	          slidesPerView: '6',
+	          direction: 'vertical',
+//	          touchRatio:0.2,
+	          slideToClickedSlide:true,
+	          freeMode: true,
+	          watchSlidesVisibility: true,
+	          watchSlidesProgress: true,
+	          
+	        });
+	        var swiper2 = new Swiper(".banner", {
+	          spaceBetween: 10,
+	          autoplay: { delay: 3000, },
+	          navigation: {
+	            nextEl: ".swiper-button-next",
+	            prevEl: ".swiper-button-prev",
+	          },
+	          pagination: {
+	              el: ".swiper-pagination",
+	            },
+	          thumbs: {
+	            swiper: swiper,
+	          },
+	        });
+		  </script>		   
+		</div>
+	</div>
+<!-- ================= //banner ================= -->
+
+
+<!-- ================= cont2 (카테고리, 배너, 상품 영역) ================= -->
+<div id="cont2">
+<!-- ================= cont2 > left_section(카테고리영역) ================= -->
+<div id="left_section">
+<!-- ================= //메뉴(side_category) ================= -->
+<div id="side_category">
+<div class="categroy_box">
+<h2><strong>국내도서</strong></h2>
+
+<ul>
+<li>
+<a href="" target="_black">소설 / 시 / 희곡</a>
+</li>
+<li>
+<a href="" target="_black">만화 / 라이트노벨 </a>
+</li>
+<li>
+<a href="" target="_black">경제 / 경영</a>
+</li>
+<li>
+<a href="" target="_black">자연 / 과학</a>
+</li>
+<li>
+<a href="" target="_black">IT / 모바일</a>
+</li>
+<li>
+<a href="" target="_black">사회 / 정치</a>
+</li>
+<li>
+<a href="" target="_black">역사</a>
+</li>
+</ul>
+</ul>
+</div>
+<!-- ================= //메뉴(side_category) ================= -->
+</div>
+<!-- ================= //left_section ================= -->
+</div>
+
+<!-- ================= right_section ================= -->
+<div id="right_section">
+
+<!-- ================= Product_view ================= -->
+<div class="product_view">
+<div class="img">
+<clasee id="imgurl"></clasee>
+</div>
+<div class="product_info">
+<h2><clasee id="title0"></clasee></h2>
+
+<table>
+<caption>
+</caption>
+<colgroup>
+<col style="width:173px;">
+<col>
+</colgroup>
+<tbody>
+<tr>
+
+<th>ISBN</th>
+<td><clasee id="isbn"></clasee></td>
+</tr>
+<tr>
+<th>작가</th>
+<td><clasee id="author"></clasee></td>
+</tr>
+<tr>
+<th>출판사/저자사</th>
+<td><clasee id="publisher"></clasee></td>
+</tr>
+<tr>
+
+</tr>
+<tr>
+</tr>
+<tr>
+<th>배송비</th>
+<td>무료배송</td>
+</tr>
+<tr>
+<th>결제금액</th>
+<td class id="total_price"><b>책 가격</b></class>원</td>
+
+</tr>
+</tbody>
+</table>
+
+<div class="btns">
+<a id="orderBtn"
+class="btn2">주문하기</a>
+</div>
+</div>
+<!-- ================= // Product_view ================= -->
+</div>
+</div>
+
+
+<!-- ================= // right_section ================= -->
+
+</div>
+
+
+
+
+
+
+<!-- ================= //cont2 ================= -->
+</div>
+
+
+
+
+
+<!-- ================= cont3 (추천 상품 영역) ================= -->
+
+
+<div id="cont3">
+
+<!-- ================= // cont3 (추천 상품 영역) ================= -->
+</div>
+
+
+
+
+
+<!-- ================= cont4 (상품 영역) ================= -->
+<div id="cont4">
+<!-- ================= bottom_section================= -->
+<div id="bottom_section">
+
+
+<div class="prod_intro">
+<h2>책 소개</h2>
+<div class="intro"><clasee id="detail"></clasee></div>
+<br>
+
+
+</div>
+
+
+
+
+</div>
+
+
+<!-- ================= // bottom_section================= -->
+
+</div>
+
+<!-- ================= // cont4 (상품 영역) ================= -->
+
+</div>
+
+
+
+
+
+
+
+<!-- ================= footer-notice ================= -->
+<div id="footer">
+
+</div>
+<!-- ================= //footer-notice ================= -->
+<!-- ================= footer-info ================= -->
+<div id="footer_info">
+<div class="container">
+<div class="info">
+<div class="f_nav">
+</div>
+<address class="f_address">
+<span>㈜쇼팅 본사 : 서울특별시 강남구 현주로 508 12-17층(역삼동, 서울상록빌딩) 대표이사: 이상묵</span>
+<span>이메일상담 </span>
+<span>자주하는 질문 </span>
+<span>사업자번호 104-86-56659 </span><br>
+<span>대표전화 : 1544-1544 평일 : 09:00~20:00 휴일 : 09:00~1800(점심시간 12:00~13:00제외) </span>
+<span>팩스:0502-123123-123213 </span>
+<span>이메일: multicampus@multicampus.com </span><br>
+<span>COPYRIGHT© 2021 Shotting. All RIGHTS RESERVED</span>
+</address>
+</div>
+</div>
+</div>
+<!-- ================= // footer-info ================= -->
+</div>
+<!-- ================= // footer ================= -->
+
+</div>
+구매자: <class id="M_id"></class> <class id="M_name"></class> <class id="count">1</class>
+
+<!-- =================★ //wrap 반드시 확인 !!!!!!!!!!!!! ================= -->
+</body>
+
+
+
+<script>
+function getCookie(cname) {
+var name = cname + "=";
+var decodedCookie = decodeURIComponent(document.cookie);
+var ca = decodedCookie.split(';');
+for(var i = 0; i <ca.length; i++) {
+var c = ca[i];
+while (c.charAt(0) == ' ') {
+c = c.substring(1);
+}
+if (c.indexOf(name) == 0) {
+return c.substring(name.length, c.length);
+}
+}
+return null;
+}
+
+$(function(){
+var login=$.cookie('logined');
+$("#logoutDiv").html(login);
+});
+
+function setCookie(cname, cvalue, exdays) {
+var d = new Date();
+d.setTime(d.getTime() + (exdays*24*60*60*1000));
+var expires = "expires="+ d.toUTCString();
+document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+
+var cookieCH = getCookie("select_product_isbn_buy");
+
+if(cookieCH == null){
+alert('책 정보 isbn 쿠키가 제대로 저장되지 않았습니다');
+window.close();
+} else if(cookieCH != null) {
+document.getElementById("isbn").innerHTML=cookieCH;
+var isbn=cookieCH;
+console.log(isbn);
+$.post("../../selectbookisbn", {
+isbn: isbn
+},
+function(data, status){
+var obj=JSON.parse(data);
+document.getElementById("title0").innerHTML=obj[0].title;
+
+document.getElementById("author").innerHTML=obj[0].author;
+document.getElementById("total_price").innerHTML=obj[0].price;
+
+document.getElementById("publisher").innerHTML=obj[0].publisher;
+document.getElementById("detail").innerHTML=obj[0].detail;
+var imgsrc=innerHTML=obj[0].imgurl2;
+document.getElementById("imgurl").innerHTML="\<img src\= "+imgsrc+" height='500px' width='400px'/>";;
+}
+);
+
+
+}
+
+var M_name=getCookie("M_name");
+var M_id=getCookie("M_id");
+document.getElementById("M_name").innerHTML=M_name;
+document.getElementById("M_id").innerHTML=M_id;
+
+
+</script>
+
+
+
+<!-- ================= conbox css ================= -->
+<style>
+input[type="radio"] {display:none;}
+input[type="radio"] + label{display:inline-block; padding:30px; width:9%; backround:#ccc; color:#999; text-align:center; font-size:14px;cursor:pointer;}
+input[type="radio"]:checked+label{background:#eaeaea;color:#000;}
+
+.conbox{width:100%; height:400px; background:#eaeaea;margin:0; auto; display:none;}
+
+input[id="tab01"]:checked ~ .con1{display:block;}
+input[id="tab02"]:checked ~ .con2{display:block;}
+input[id="tab03"]:checked ~ .con3{display:block;}
+input[id="tab04"]:checked ~ .con4{display:block;}
+input[id="tab05"]:checked ~ .con5{display:block;}
+input[id="tab06"]:checked ~ .con6{display:block;}
+</style>
+
+</html>

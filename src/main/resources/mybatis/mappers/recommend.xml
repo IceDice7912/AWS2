@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.mulcam.ai.web.dao.RecommendDAO">
+
+	<select id="findCategory" resultType="String" parameterType="String">
+		<![CDATA[
+			select category from book where title=#{title}
+		]]>
+	</select>
+	
+	
+	<select id="recommendBook" resultType="RecommendVO" parameterType="String">
+		<![CDATA[
+			select title,author,publisher,category,imgurl,isbn,price from book where isbn=#{isbn}
+		]]>
+	</select>
+	
+	<select id="searchBook"  resultType="RecommendVO" parameterType="String">
+		<![CDATA[
+			select title,author,publisher,category,imgurl,isbn,price from book where title=#{title}
+		]]>
+	</select>
+
+
+	
+</mapper>

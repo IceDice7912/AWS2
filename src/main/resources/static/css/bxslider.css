@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+#book-container{background:#fff; padding:50px 0;} 
+.book_conts_inner{width:1200px; height:100%; margin:0 auto; } 
+.book_conts_inner h2{font-size:30px; color:#444; line-height:0.5; text-align:left;} 
+#conts_list{position:relative; height:370px; margin-top:50px; } 
+#conts_list:before{content:""; position:absolute; top:0; left:-100%; width:100%; height:100%; background:rgba(255,255,255,0.5); z-index:1;} 
+#conts_list:after{content:""; position:absolute; top:0; right:-100%; width:100%; height:100%; background:rgba(255,255,255,0.5); z-index:2;} 
+/* #book-container .bx-viewport{overflow: visible !important;} */ 
+.book_list li{transition:0.5s all;} 
+.book_list li span{display:block; position:relative; height:500px; border-radius:10px; overflow:hidden; background:skyblue;} 
+.book_list li span img{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); max-width:100%; max-height:100%; background-color:cadetblue; } 
+.book_list li dl{height:250px; padding:15px; background:fff; transition:0.5s all;} 
+.book_list li dl dt{font-size:25px; color:#444; line-height:2; font-weight:bold; font-family: 'HanaB'; } 
+.book_list li dl dt:after{content:""; display:block; width:20px; height:2px; background:red; margin-top:10px;} 
+.book_list li dl #title a:hover{background-color: #6F606E; color: #fff; border-radius: 3px;}
+.book_list li dl #price{font-size:20px; color:#444; margin-top:15px; margin-bottom:15px; font-family: 'HanaB';} 
+.book_list li dl #price a{color:red; font-size:16px; }
+.book_list li dl #info{font-size:16px; color:#444; margin-top:5px; font-family: 'HanaA';}
+.book_list li dl #point{font-size:20px;  color:#444444;  margin-top:25px;}
+.book_list li dl #point #po{font-size:18px;  color:blue;  margin-top:25px;}
+
+.book_list li:hover{transform:translateY(-20px);} 
+.book_list li:hover dl{box-shadow:5px 5px 10px rgba(0,0,0,.15);} 
+a.bx-prev{position:absolute; left:-70px; top:50%; transform:translateY(-50%); width:50px; height:50px; background:url(슬라이드 이전버튼 이미지 주소) no-repeat; z-index:100;} 
+a.bx-next{position:absolute; right:-70px; top:50%; transform:translateY(-50%); width:50px; height:50px; background:url(슬라이드 다음버튼 이미지 주소) no-repeat; z-index:100;}

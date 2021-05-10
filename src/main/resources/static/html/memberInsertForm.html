@@ -1,0 +1,108 @@
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<script type="text/javascript" src="../../js/my.js"></script> 
+
+<style>
+	body{
+        padding-top:1rem;
+		padding-bottom:1rem;
+    }
+    
+    .myform{
+		position: relative;
+		display: -ms-flexbox;
+		display: flex;
+		padding: 1rem;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		width: 100%;
+		pointer-events: auto;
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 1px solid rgba(0,0,0,.2);
+		border-radius: 1.1rem;
+		outline: 0;
+		max-width: 600px;
+	}
+
+	h1{
+         font-family:'Kaushan Script', cursive;
+    }
+      
+    label, option{
+    	font-family:'Nanum Gothic', serif;
+    }  
+    
+    .mybtn{
+         border-radius:50px;
+     }
+
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+			<div class="col-md-5 mx-auto">
+			      <div class="myform form ">
+                        <div class="logo mb-3">
+                           <div class="col-md-12 text-center">
+                              <h1 >Shotting</h1>
+                           </div>
+                        </div>
+                        <form action="#" name="registration">
+                        
+                           <div class="form-group">
+                              <label for="inputName">성명</label>
+                              <input type="text"  class="form-control" id="name" aria-describedby="emailHelp" placeholder="성명을 입력하세요">
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="InputID">ID</label>
+                              <input type="text"  class="form-control" id="id" aria-describedby="emailHelp" placeholder="아이디를 입력하세요">
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="inputPassword">비밀번호</label>
+                              <input type="password" class="form-control" id="pw" aria-describedby="emailHelp" placeholder="비밀번호를 입력해주세요 (특수문자를 1개 이상 입력해주세요.)">
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="inputGender">성별</label><br>
+								<input type="radio" name="gender" value="남자" >남자<br>								
+								<input type="radio" name="gender" value="여자" >여자<br>
+                           </div>
+                    
+	                    <div class="form-group">
+	                        <label for="InputFavorite">좋아하는 장르를 선택해주세요.</label><br>
+	                        <select name="FavoriteList" id="favorite">
+	                        	<option value="소설/시/희곡">소설/시/희곡</option>
+								<option value="만화/라이트노벨">만화/라이트노벨</option>
+								<option value="경제/경영">경제/경영</option>
+								<option value="자연과학">자연과학</option>
+								<option value="IT/모바일">IT/모바일</option>
+								<option value="사회/정치">사회/정치</option>
+								<option value="역사">역사</option>
+	                        </select>
+	                    </div>
+                           
+	                    <div class="col-md-12 text-center mb-3">
+	                    	<button type="submit" id="memberInsertBtn" class="btn btn-block mybtn btn-primary">회원가입</button>
+	                    </div>
+                   </form>
+                </div>
+			</div>
+		</div>
+       </div>  
+</body>

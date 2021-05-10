@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>나의 장바구니</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../js/my.js"></script>
+
+</head>
+<body>
+	<article class="container">
+            <div class="page-header">
+                <div class="col-md-6 col-md-offset-3">
+                <h3><class id="M_name"></class>님의 장바구니 : <class id="M_id"></class>  ||| <class id="count"></class> / 10 품목</h3>
+                홈페이지에서 나가거나 첫 index 화면으로 되돌아가면 장바구니가 초기화됩니다.<br>
+		 장바구니는 최대 10개까지 담을 수 있습니다.                
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-offset-3">
+                <form role="form">
+                    
+             		<div id="itemDiv"  class="form-group text-center"></div>
+<table border="1" style="width:100%">
+	<tr>
+    	<th>책 제목</th>
+    	<th>가격</th>
+    	<th>작가</th> 
+    	<th>isbn</th>
+ 	</tr>
+	<tr>
+   			<td><class id="title0"></class></td>
+   			<td><class id="price0"></class></td> 			
+   			<td><class id="author0"></class></td>
+   			<td><class id="isbn0"></class></td>  			   			   			
+  	</tr>
+  	<tr>
+   			<td><class id="title1"></class></td>
+   			<td><class id="price1"></class></td> 			
+   			<td><class id="author1"></class></td>
+   			<td><class id="isbn1"></class></td>  			   			   			
+  	</tr>
+  	<tr>
+   			<td><class id="title2"></class></td>
+   			<td><class id="price2"></class></td> 			
+   			<td><class id="author2"></class></td>
+   			<td><class id="isbn2"></class></td>   			   			   			
+  	</tr>
+  	<tr>
+   			<td><class id="title3"></class></td>
+   			<td><class id="price3"></class></td> 			
+   			<td><class id="author3"></class></td>
+   			<td><class id="isbn3"></class></td>    			   			   			
+  	</tr>
+  	<tr>
+   			<td><class id="title4"></class></td>
+   			<td><class id="price4"></class></td>  			
+   			<td><class id="author4"></class></td>
+   			<td><class id="isbn4"></class></td>    			   			   			
+  	</tr>
+  	<tr>
+   			<td><class id="title5"></class></td>
+   			<td><class id="price5"></class></td>  			
+   			<td><class id="author5"></class></td>
+   			<td><class id="isbn5"></class></td>    			   			   			
+  	</tr>
+  	<tr>
+   			<td><class id="title6"></class></td>
+   			<td><class id="price6"></class></td>  			
+   			<td><class id="author6"></class></td>
+   			<td><class id="isbn6"></class></td>   			   			   			
+  	</tr>
+  	<tr>
+   			<td><class id="title7"></class></td>
+   			<td><class id="price7"></class></td> 			
+   			<td><class id="author7"></class></td>
+   			<td><class id="isbn7"></class></td>   			   			   			
+  	</tr>
+  	<tr>
+   			<td><class id="title8"></class></td>
+   			<td><class id="price8"></class></td> 			
+   			<td><class id="author8"></class></td>
+   			<td><class id="isbn8"></class></td>   			   			   			
+  	</tr>
+  	<tr>
+   			<td><class id="title9"></class></td>
+   			<td><class id="price9"></class></td>  			
+   			<td><class id="author9"></class></td>
+   			<td><class id="isbn9"></class></td> 			   			   			
+  	</tr>
+</table>
+<br>
+총 가격 : <class id="total_price"></class>
+<br>
+                    <div class="form-group text-center">                    
+                        <input type="button" id="anotherBtn" class="btn btn-info"
+                        value="다른 상품 추가 주문하기"> 
+                        <input type="button" id="orderBtn" class="btn btn-warning"
+                        value="주문하기">
+                      	<input type="button" id="cancelBtn" class="btn btn-primary"
+                        value="장바구니 비우기"> 
+                    </div>
+                </form>
+            </div>
+
+        </article>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script>
+var strArray
+var cartList_title=new Array();
+var cartList_price=new Array();
+var cartList_price_total=0;
+var cartList_author=new Array();
+var cartList_isbn=new Array();
+
+Check_Cart_Cookie();
+function getCookie(cname) {
+	  var name = cname + "=";
+	  var decodedCookie = decodeURIComponent(document.cookie);
+	  var ca = decodedCookie.split(';');
+	  for(var i = 0; i <ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+	      return c.substring(name.length, c.length);
+	    }
+	  }
+	  return null;
+	}
+function Check_Cart_Cookie() {
+	var loginch = getCookie('M_id');
+	
+	if(loginch == null){
+		alert('우선 로그인부터 해주세요.');
+		$.removeCookie("select_product_isbn_cart", { path: '/' });// 장바구니 쿠키 삭제
+		window.close();
+	}
+		
+	var obj;
+	var items = getCookie('select_product_isbn_cart'); // 이미 저장된 값을 쿠키에서 가져오기
+	
+	  var items=items;
+	  var result=items.replace(/,/gi,"");
+	strArray = items.split(',');
+	for(var i=0; i<strArray.length; i++){
+		$.post("../../selectbookisbn", {
+			isbn: strArray[i]
+		},
+			function(data, status){
+			obj=JSON.parse(data);
+			cartList_title.push(obj[0].title);
+			cartList_price.push(obj[0].price);
+			cartList_price_total = cartList_price_total + obj[0].price;
+			cartList_author.push(obj[0].author);
+			cartList_isbn.push(obj[0].isbn);
+			cartList();
+		}
+	);
+	}
+
+	
+}
+function cartList() {
+	for(var i=0; i<strArray.length; i++){
+		document.getElementById("title"+i+"").innerHTML=cartList_title[i];
+		document.getElementById("price"+i+"").innerHTML=cartList_price[i];
+		document.getElementById("total_price").innerHTML=cartList_price_total;
+		document.getElementById("author"+i+"").innerHTML=cartList_author[i];
+		document.getElementById("isbn"+i+"").innerHTML=cartList_isbn[i];
+		document.getElementById("count").innerHTML=strArray.length;
+	}
+	
+}
+
+var M_name=getCookie("M_name");
+var M_id=getCookie("M_id");
+document.getElementById("M_name").innerHTML=M_name;
+document.getElementById("M_id").innerHTML=M_id;
+</script>
+	
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!------------- 쇼핑몰 haed 시작(css, js, 외부jquery link, favicon 등)  -------------->
+<head>
+
+	<meta charset="UTF-8">
+	 <!-- '반응형 웹'-->
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	 <!-- 익스플로러 최신버전으로 랜더링 -->
+	 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	 	 
+	 <!-- favicon -->
+	 	 
+	<title>온라인 쇼핑몰 - 쇼팅</title>
+	
+<!-- ================= #1 External css/js ================= -->
+  	<!-- JQUERY 순서 : JQUERY다음 CDN-->
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	
+
+	<!-- swiper -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+			
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
+	
+	
+<!-- ================= #2 Internal css/js ================= -->	
+  	<!-- 쇼핑몰 CSS -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/ProductList/ListPageStyle.css">
+	<link rel="stylesheet" href="../../css/BannerStyle.css">
+	<link rel="stylesheet" href="../../css/font.css">
+	<link rel="stylesheet" href="../../css/font-awesome.css">
+
+  	<!-- 쇼핑몰 js -->
+  	<link rel="stylesheet" href="../../js/ProductList/ListPage.js">
+	
+	<!-- #2.2 기능 js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="../../js/ProductList/ProdList.js"></script>
+	
+
+</head>
+<!-- ================= 쇼핑몰 body 시작 ================= -->
+<body>
+<!-- ================= 전체포장(wrap) ================= -->
+	<div id="wrap">
+<!-- ================= header-top  ================= -->
+		<div id="header-top">
+			   <div class="hTopIn"> 
+			     <div class="adver"><br></div> 
+			     <input type="button" value="▼" class="down" title="메뉴"> 
+			   </div>				
+				<script>
+				//	$(".adver").hide(); //우선 배너는 안보이게끔 숨긴다.
+					$(".hTopIn .down").click(function(){ // 버튼을 클릭했을 때
+					$(".adver").slideToggle(300); //토글작동!!
+					return false; 
+					});
+				</script>
+		</div>
+	<!-- ================= 첫 번째 구역(header)  ================= -->
+		<div id="header">
+			<div class="container">
+				<div class="header">
+					<ul class="list2">
+					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('../../html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>	
+	<div id="header-subArea">
+			<nav id="nav">
+				<ul class="gnb">
+					<li class="logo"><a href="../../index.html"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></a></li>						
+					<li class="menu" ><a href="#" >국내도서</a></li>
+					<li class="menu"><a href="#" onclick="window.open('../../html/Utility/chatbot.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">챗봇 서비스</a></li>
+					<li class="menu" ><a href=""onclick="window.open('../../html/Utility/cameraWeb.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">얼굴인식 서비스</a></li>
+					<li class="menu"><a href="" onclick="window.open('../../html/recommend/recommend.html','toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">추천 서비스</a></li>												
+				</ul>
+			</nav>
+			<div id="searchBar">
+				<div class="search-Bar">
+					<form role="search" method="get" class="search-form" action="http://www.google.com">
+						<label>
+							<input type="search" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s">	
+						</label>
+						<button type="submit" class="search-submit"><span class="screen-reader-text"><i class="fas fa-search"></i></span></button>
+					</form>
+				</div>				
+			</div>							
+	</div>
+<div style="text-align:center; margin-top:5px;"></div>		
+
+<!-- ================= banner ================= -->
+	<div id="banner">
+		 <div class="container" >
+		  <!-- Swiper -->
+		  <div class="swiper-container banner">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_01.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_02.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_03.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_04.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_05.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_07.jpg" class="swiper-lazy" alt=""></div>
+		    </div>
+		<!-- Add Pagination (부가요소) -->	  
+		  <!-- pagination -->  
+		    <div class="swiper-pagination"></div>
+		    
+		  <!-- 양쪽 넘기는 버튼 -->
+    		<div class="swiper-button-prev"></div>
+    		<div class="swiper-button-next"></div>
+		  <!-- 하단 스크롤바 -->		
+    		<div class="swiper-scollbar"></div>
+		 </div>
+	    <div thumbsSlider="" class="swiper-container mySwiper">
+	      <div class="swiper-wrapper">
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_01.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_02.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_03.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_04.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_05.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_07.jpg" />
+	        </div>
+	        </div>
+	      </div>
+	    </div>		 
+		 
+<!-- ================= Swiper js ================= -->
+		  <script>
+	      var swiper = new Swiper(".mySwiper", {
+	     	  spaceBetween: 5,
+	          slidesPerView: '6',
+	          direction: 'vertical',
+//	          touchRatio:0.2,
+	          slideToClickedSlide:true,
+	          freeMode: true,
+	          watchSlidesVisibility: true,
+	          watchSlidesProgress: true,
+	          
+	        });
+	        var swiper2 = new Swiper(".banner", {
+	          spaceBetween: 10,
+	          autoplay: { delay: 3000, },
+	          navigation: {
+	            nextEl: ".swiper-button-next",
+	            prevEl: ".swiper-button-prev",
+	          },
+	          pagination: {
+	              el: ".swiper-pagination",
+	            },
+	          thumbs: {
+	            swiper: swiper,
+	          },
+	        });
+		  </script>		   
+		</div>
+	</div>
+<!-- ================= //banner ================= -->
+
+
+
+<!-- ================= //contents ================= -->                                       
+		
+<div style="text-align:center; margin-top:5px;">　</div>		
+
+
+
+<!-- ================= cont2 (카테고리, 배너, 상품 영역) ================= -->
+	<div id="cont2">
+	
+<!-- ================= cont2 > left_section(카테고리영역) ================= -->
+		<div id="left_section">
+			<div id="side_category">
+				<div class="categroy_box">
+					<h2><strong><i class="fas fa-indent fa-2x"></i></strong></h2>
+					<ul>
+						<li>
+							<a href="ProductList_02.html">소설_시_희곡</a>
+						</li>
+						<li>
+							<a href="ProductList_02.html">만화_라이트노벨 </a>
+						</li>
+						<li>
+							<a href="ProductList_02.html">경제 경영</a>
+						</li>
+						<li>
+							<a href="ProductList_02.html">자연과학</a>
+						</li>
+						<li>
+							<a href="ProductList_02.html">IT 모바일</a>
+						</li>
+						<li>
+							<a href="ProductList_02.html">사회 정치</a>
+						</li>	
+						<li>
+							<a href="ProductList_02.html">역사</a>
+						</li>																																																																																																												
+					</ul>				
+				</div>
+			</div>
+<!-- ================= //side_category ================= -->
+		</div>
+<!-- ================= right_section ================= -->
+		<div id="right_section">
+
+<!-- ================= prod_list ================= -->	
+		<div class="prod_sort_area">
+				
+				<div class="prod_sortNum">
+					<span class="prod_sortLft">
+						<div class="prod_page">
+							<input type="button" id="previousBtn" onclick="prev_click();" value="이전">
+							<span id="paging">1</span>							
+							<input type="button" id="nextBtn" onclick="next_click();" value="다음 ">
+						</div>
+					</span>
+				</div>
+    		<input id="category_checkAll" name="category_checkAll" type="checkbox" value="" style="display:none">    
+		</div>
+	<div style="text-align:center; margin-top:5px;"><br></div>		
+						 
+			<div id="prod_list" class="prod_list_area">
+				
+			</div>   
+
+			
+			
+			
+<!-- ================= f//r ================= -->                                       	
+			
+		</div>
+	</div>
+		
+<!-- ================= footer ================= -->                                       	
+	<div id="footer">
+			<div id="footer_info">
+				<div class="container">
+                    <div class="info">
+                        <div class="f_nav">
+                            <ul>
+                                <li><a class="nav-link" href="#"onclick="window.open('html/main.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=750,height=400');">회사소개</a></li>
+                                <li><a href="#">웹이용약관</a></li>
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">위치기반서비스 이용약관</a></li>
+                                <li><a href="#"><strong>청소년보호정책</strong></a></li>
+                                <li><a href="#"><strong>이메일주소무단수집거부</strong></a></li>          	
+                                                      
+                            </ul>
+                        </div>
+                        <address class="f_address">
+                            <span>㈜쇼팅 본사 : 서울특별시 강남구 현주로 508 12-17층(역삼동, 서울상록빌딩) 대표이사: 이상묵</span>
+                            <span>이메일상담 </span>
+                            <span>자주하는 질문 </span>
+                            <span>사업자번호 104-86-56659 </span><br>
+                            <span>대표전화 : 1544-1544	평일 : 09:00~20:00   휴일 : 09:00~1800(점심시간 12:00~13:00제외) </span>
+                            <span>팩스:0502-123123-123213 </span>
+                            <span>이메일: multicampus@multicampus.com </span><br>
+                            <span>COPYRIGHT&copy; 2021 Shotting. All RIGHTS RESERVED</span>
+                        </address>
+                    </div>
+                </div>                
+			</div>
+<!-- ================= // footer-info ================= -->                                       			
+		</div>
+<!-- ================= // footer ================= -->                                       				
+	</div>
+<!-- =================★ //wrap 반드시 확인 !!!!!!!!!!!!! ================= -->                                       				
+</body>
+
+
+<script>
+$(function(){
+	var login=$.cookie('logined');
+		$("#logoutDiv").html(login);
+});
+</script>
+
+
+</html>

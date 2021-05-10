@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	
+ 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8">
+	<title>카메라 도서 추천</title>
+	
+	
+	<!-- JQUERY 순서 : JQUERY다음 CDN-->
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="../../js/my.js"></script>
+
+	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" href="../../css/reset.css">
+	
+	<link rel="stylesheet" href="../../css/cameraWeb.css">
+	<link rel="stylesheet" href="../../css/font.css">
+	
+  	<script type="text/javascript" src="../../js/my.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    	
+	
+
+<script>
+var localstream;
+
+	$(document).ready(function(){
+		$("#onBtn").click(function(){
+			alert("카메라 on버튼 눌렀다.");
+			navigator.getUserMedia = navigator.getUserMedia
+			|| navigator.webkitGetUserMedia
+			|| navigator.mozGetUserMedia;
+			
+			if(navigator.getUserMedia){
+				navigator.getUserMedia(
+					{audio:false, video:true},
+					function(stream){
+						//카메라 접근 성공
+						alert("ok");
+						video=document.querySelector('video');
+						video.srcObject=stream;
+						localstream=stream;
+						
+						video.onloadedmetadata=function(e){
+							video.play();
+						}
+					},
+					function(){
+						//카메라 작동 에러
+						alert("fail");
+					}
+				);
+				
+			}
+			
+		}); //카메라 켜기 버튼 처리
+		
+		
+		$("#faceSubmitBtn").click(function(){
+			video.pause();	
+			
+			localstream.getTracks()[0].stop();
+
+			var canvas = document.getElementById("drawCanvas");
+			var context = canvas.getContext("2d");
+
+			context.drawImage(video, 0, 0, 400, 300);
+			
+			//서버에 전송하기
+			const imgBase64 = canvas.toDataURL('image/jpeg','multipart/form-data');
+			const decodImg = atob(imgBase64.split(',')[1]);
+
+			let array = [];
+			for (let i = 0; i < decodImg.length; i++) {
+				array.push(decodImg.charCodeAt(i));
+			}
+
+			const file = new Blob([ new Uint8Array(array) ], {
+				type : 'image/jpeg'
+			});
+			const fileName = 'face.jpg';
+			let formData = new FormData();
+			formData.append('file', file, fileName);
+			
+			$.ajax({
+				type : 'post',
+				url : '../../upload',
+				cache : false,
+				data : formData,
+				processData : false,
+				contentType : false,
+				success : function(data) {
+					alert('Uploaded !!');
+				}
+			});
+		});
+		
+	});//end ready
+</script>
+</head>
+<body>
+	<div id="wrap">
+<!-- ================= header-top  ================= -->
+		<div id="header-top">
+			   <div class="hTopIn"> 
+			     <div class="adver"><br>광고등등..여기여기</div> 
+			     <input type="button" value="▼" class="down" title="메뉴"> 
+			   </div>				
+				<script>
+				//	$(".adver").hide(); //우선 배너는 안보이게끔 숨긴다.
+					$(".hTopIn .down").click(function(){ // 버튼을 클릭했을 때
+					$(".adver").slideToggle(300); //토글작동!!
+					return false; 
+					});
+				</script>
+		</div>
+	<!-- ================= 첫 번째 구역(header)  ================= -->
+		<div id="header">
+			<div class="container">
+				<div class="header">
+				<div id="loginArea">
+					<ul class="list2">
+					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('../../html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+		</div>	
+		<div id="header-subArea">
+					<nav id="nav">
+						<ul class="gnb">
+							<li class="logo"><a href="../../index.html"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></a></li>						
+							<li class="menu" ><a href="../../html/ProductList/ProductList.html" >국내도서</a></li>
+							<li class="menu"><a href="../../html/Utility/chatbot.html" >챗봇 서비스</a></li>
+							<li class="menu" ><a href="#">얼굴인식 서비스</a></li>
+							<li class="menu"><a href="../../html/recommend/recommend.html">추천 서비스</a></li>												
+						</ul>
+					</nav>
+				<div id="searchBar">	
+					<div class="search-Bar">
+						<label>
+							<input type="search" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s"/>
+						</label>
+							<button type="submit" class="search-submit"><span class="screen-reader-text"><i class="fas fa-search"></i></span></button>
+					</div>
+				</div>								
+		</div>
+	<!-- ----------------------------------------------------------- -->
+		<div id="cont1">
+<!-- ================= cont2 > left_section(카테고리영역) ================= -->
+		<div id="left-section">
+			<div id="side_category">
+				<div class="categroy_box">
+					<h2><strong><i class="fas fa-indent fa-2x"></i></strong></h2>
+					<ul>
+						<li>
+							<a href="#section2" class="scroll">얼굴인식 서비스</a>
+						</li>
+						<li>
+							<a href="#section3" class="scroll">이용방법</a>
+						</li>
+						<li>
+							<a href="#section4" class="scroll">사용해보기</a>
+						</li>
+						<li>
+							<a href="#section5" class="scroll">추천도서</a>
+						</li>																																																																																																																			
+					</ul>				
+				</div>
+			</div>
+<!-- ================= //side_category ================= -->
+			<script>
+			
+			jQuery(document).ready(function($) {
+			
+			$(".scroll").click(function(event){            
+			
+			event.preventDefault();
+			
+			$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+			
+			});
+			
+			});
+			
+			</script>
+		</div>
+<!-- ================= right_section ================= -->
+		<div id="right-section">
+			<div id="section1">
+				<div id="background">
+					<img src="../../img/face_03.jpg" style="width:100%;">
+				</div>
+			</div>
+			<div id="section2">
+				   <div class="main_text1">
+				        <h1>얼굴 인식 서비스</h1>
+				        <div class="contents1">얼굴 인식 서비스를 활용하여 나와 비슷한 연예인과 나이를 분석<br>비슷한 사람들의 도서목록을 추천 받을 수 있습니다.</div>
+				        <div class="service">
+				          <div class="photo">
+				            <img src="../../img/face_05.png" style="width:540; height:427;">     
+				          </div>
+				        </div>
+				      </div>
+			</div>
+			<div id="section3">
+				   <div class="main_text2">
+				        <h1>이용 방법</h1>
+				        <div class="contents2">
+				        	1. <a href="#section4" class="scroll"><span>카메라 켜기</span></a> [버튼]을 클릭합니다.<br>
+				        	2. 얼굴이 잘보이게 위치해야 합니다. <br>
+				        	3. <a href="#section4" class="scroll"><span>사진 전송하기</span></a> [버튼]을 클릭합니다. <br>
+				        	4. 잠시후 추천 도서 목록을 제공 받습니다. <br>
+				        </div>
+				      </div>			
+			</div>	
+			<div id="section4">				
+				<div id="cameraWeb">
+					<div class="camera-UI">
+						<div class="camera-main">
+							<video src="" controls="controls" width="400" height="300"></video>
+							<canvas id="drawCanvas"   width="400" height="300">
+								이 문장은 사용자의 웹 브라우저가 canvas 요소를 지원하지 않을 때 나타납니다!
+							</canvas>
+						</div>
+						<div class="camera-btn">
+							<input type="button" value="카메라 켜기" id="onBtn">
+							<input type="button" value="사진 전송하기" id="faceSubmitBtn">						
+						</div>
+						<div class="camera-sub">
+							<br>
+							와!! <star></star>을(를) 닮은 <age></age>세의 <gender></gender>이시군요!!<br><br>
+							당신 같은 사람들이 좋아하는 책은....<br>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div id="section5">
+				<div class="section_title">
+					<h3>추천 도서
+						<span>얼굴인식이 추천하는 도서</span>
+					</h3>
+				</div> 			
+				<div id="reco-book-area">
+						<div class="reco-book-img">
+							<class id="imgurl">책 이미지</class>
+						</div>
+						<div id="reco-book-info">
+							<div class="reco-book-title">
+								<class id="title">여기는 책 제목입력</class>
+							</div>
+							<div class="reco-book-sub">
+								<class id="detail">책 설명</class>
+							</div>
+					</div>
+				</div>												
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script>
+$(function(){
+	var login=$.cookie('logined');
+		$("#loginArea").html(login);
+});
+
+window.onload = function(){
+    var target = document.getElementById("faceSubmitBtn");
+    target.addEventListener('click', function(){
+	$.post("../../recommandBook", {
+		
+	},
+		function(data, status){
+			var obj=JSON.parse(data);
+			document.getElementById("title").innerHTML=obj[0].title;
+			var imgsrc=obj[0].imgurl2;
+			document.getElementById("imgurl").innerHTML="\<img src\= "+imgsrc+" height='300px' width='200px'/>";
+			document.getElementById("detail").innerHTML=obj[0].detail;
+	}
+	);
+    });
+};
+
+
+</script>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.mulcam.ai.web.dao.BookDAO">
+	
+	<select id="bookList" parameterType="bookVO" resultType="hashMap">
+		<![CDATA[
+			select * from book
+		]]>
+	</select>
+	
+	<select id="selectbookisbn"  resultType="bookVO">
+		<![CDATA[
+			select * from book where ISBN=#{ISBN}
+		]]>
+	</select>
+	
+	<select id="topicBook"  resultType="bookVO">
+		<![CDATA[
+			select * from book inner join topicbook on book.isbn=topicbook.isbn
+		]]>
+	</select>
+	
+	<select id="recommandBook"  resultType="bookVO">
+		<![CDATA[
+			SELECT * FROM ( SELECT * FROM book ORDER BY dbms_random.value ) WHERE rownum = 1
+		]]>
+	</select>	
+	
+	<select id="todayBook"  resultType="bookVO">
+		<![CDATA[
+			SELECT * FROM ( SELECT * FROM book ORDER BY dbms_random.value ) WHERE rownum <= 5
+		]]>
+	</select>
+	
+</mapper>

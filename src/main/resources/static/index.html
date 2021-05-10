@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- ================ haed - css, js, jquery, favicon, font ================ -->
+<head>
+
+	 <meta charset="UTF-8">
+	 <!-- '반응형 웹'-->
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	 <!-- 익스플로러 최신버전으로 랜더링 -->
+	 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	 
+	<title>온라인 쇼핑몰 - 쇼팅</title>
+	
+<!-- ================= #1 ================= -->
+  	<!-- JQUERY 순서 : JQUERY다음 CDN-->
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+	<!-- swiper -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
+	
+	<!-- slick -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+		
+
+<!-- ================= #2 Internal css/js ================= -->	
+  	<!-- 쇼핑몰 CSS -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/Style.css">
+	<link rel="stylesheet" href="../../css/BannerStyle.css">
+	<link rel="stylesheet" href="../../css/font.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+
+	<!-- 기능 js -->
+  	<script type="text/javascript" src="../../js/my.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    	
+
+
+</head>
+
+<!-- ================= 쇼핑몰 body 시작 ================= -->
+<body>
+<!-- ================= 전체포장(wrap) ================= -->
+	<div id="wrap">
+<!-- ================= header-top  ================= -->
+		<div id="header-top">
+			   <div class="hTopIn"> 
+			     <div class="adver"></div> 
+			     <input type="button" value="▼" class="down" title="메뉴"> 
+			   </div>				
+				<script>
+				//	$(".adver").hide(); //우선 배너는 안보이게끔 숨긴다.
+					$(".hTopIn .down").click(function(){ // 버튼을 클릭했을 때
+					$(".adver").slideToggle(300); //토글작동!!
+					return false; 
+					});
+				</script>
+		</div>
+	<!-- ================= 첫 번째 구역(header)  ================= -->
+		<div id="header">
+			<div class="container">
+				<div class="header">
+				<div id="loginArea">
+					<ul class="list2">
+					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('../../html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+		</div>	
+		<div id="header-subArea">
+					<nav id="nav">
+						<ul class="gnb">
+							<li class="logo"><a href="../../index.html"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></a></li>						
+							<li class="menu" ><a href="html/ProductList/ProductList.html" >국내도서</a></li>
+							<li class="menu"><a href="#" onclick="window.open('../../html/Utility/chatbot.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">챗봇 서비스</a></li>
+							<li class="menu" ><a href=""onclick="window.open('../../html/Utility/cameraWeb.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">얼굴인식 서비스</a></li>
+							<li class="menu"><a href="" onclick="window.open('../../html/recommend/recommend.html','toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">추천 서비스</a></li>												
+						</ul>
+					</nav>
+				<div id="searchBar">	
+					<div class="search-Bar">
+						<label>
+							<input type="search" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s"/>
+						</label>
+							<button type="submit" class="search-submit"><span class="screen-reader-text"><i class="fas fa-search"></i></span></button>
+					</div>
+				</div>								
+		</div>
+		
+<!--  ================= //header  ================= -->
+<div style="text-align:center; margin-top:5px;"></div>		
+
+<!-- ================= banner ================= -->
+	<div id="banner">
+		 <div class="container" >
+		  <!-- Swiper -->
+		  <div class="swiper-container banner">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_01.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_02.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_03.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_04.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_05.jpg" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/mainbanner_07.jpg" class="swiper-lazy" alt=""></div>
+		    </div>
+		<!-- Add Pagination (부가요소) -->	  
+		  <!-- pagination -->  
+		    <div class="swiper-pagination"></div>
+		    
+		  <!-- 양쪽 넘기는 버튼 -->
+    		<div class="swiper-button-prev"></div>
+    		<div class="swiper-button-next"></div>
+		  <!-- 하단 스크롤바 -->		
+    		<div class="swiper-scollbar"></div>
+		 </div>
+	    <div thumbsSlider="" class="swiper-container mySwiper">
+	      <div class="swiper-wrapper">
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_01.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_02.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_03.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_04.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_05.jpg" />
+	        </div>
+	        <div class="swiper-slide">
+	          <img src="../../img/Banner/subbanner_07.jpg" />
+	        </div>
+	        </div>
+	      </div>
+	    </div>		 
+		 
+<!-- ================= Swiper js ================= -->
+		  <script>
+	      var swiper = new Swiper(".mySwiper", {
+	     	  spaceBetween: 5,
+	          slidesPerView: '6',
+	          direction: 'vertical',
+//	          touchRatio:0.2,
+	          slideToClickedSlide:true,
+	          freeMode: true,
+	          watchSlidesVisibility: true,
+	          watchSlidesProgress: true,
+	          
+	        });
+	        var swiper2 = new Swiper(".banner", {
+	          spaceBetween: 10,
+	          autoplay: { delay: 3000, },
+	          navigation: {
+	            nextEl: ".swiper-button-next",
+	            prevEl: ".swiper-button-prev",
+	          },
+	          
+	          pagination: {
+	              el: ".swiper-pagination",
+	            },
+	          thumbs: {
+	            swiper: swiper,
+	          },
+	        });
+		  </script>		   
+		</div>
+	</div>
+<!-- ================= //banner ================= -->
+
+
+<!-- ================= contents ================= --->
+		<div id="section1">
+			<div id="one_section">
+			<div class="section_title">
+				<h3>Our Service
+					<span>쇼팅에서 제공하는 다양한 서비스를 누려보세요!</span>
+						<a href="" class="a">더보기 ▶</a>
+				</h3>
+			</div>    
+				<div id="tool">
+			        <ul class="icons">
+			          <li>
+			            <div class="icon_img">
+			              <img src="../../img/icon_chatbot.jpg">
+			            </div>
+			            <div class="contents1_bold">챗봇 서비스</div>
+			            <div class="contents2">
+			               	챗봇을 활용하여 독자들에게<br> 더욱 가깝게 다가갑니다.
+			            </div>
+			            <div class="more">
+			              <a href="#" onclick="window.open('../../html/Utility/chatbot.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">MORE</a>
+			            </div>
+			          </li>
+			
+			          <li>
+			            <div class="icon_img">
+			              <img src="../../img/icon_face.png">
+			            </div>
+			            <div class="contents1_bold">얼굴인식 서비스</div>
+
+			            <div class="contents2">
+			               	얼굴 인식을 통하여 도서를 추천합니다.<br><br>
+			            </div>
+			            <div class="more">
+			              <a href=""onclick="window.open('../../html/Utility/cameraWeb.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">MORE</a>
+			            </div>
+			          </li>
+			
+			          <li>
+			            <div class="icon_img">
+			              <img src="../../img/icon_reco.png">
+			            </div>
+			            <div class="contents1_bold">추천 서비스</div>
+			            <div class="contents2">
+			            데이터와 추천알고리즘 학습을 통하여<br> 독자들에게 맞는 도서를 추천합니다.
+			            </div>
+			            <div class="more">
+			              <a href="" onclick="window.open('../../html/recommend/recommend.html','toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">MORE</a>
+			            </div>
+			          </li>
+			        </ul>
+			      </div>
+			    </div>
+			   </div>
+		<div style="text-align:center; margin-top:20px;"><br></div>		
+			 <div id="section1">
+			 	<div id="one_section">
+				<div class="section_title">
+					<h3>도서 장르
+						<span>여러분에게 맞는 다양한 도서 장르를 누려보세요!</span>
+							<a href="" class="a">더보기 ▶</a>
+					</h3>
+				</div>    
+					<div id="prodline">
+					<figure class="snip1445">
+					  <img src="../../img/middle_01.jpg" alt="sample84" />
+					  <figcaption>
+					    <div>
+					      <h2>소설 / 시  / 희곡</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+					</div>
+					<div id="prodline">					
+					<figure class="snip1445 hover">
+					 <img src="../../img/middle_02.jpg" alt="sample21" />
+					  <figcaption>
+					    <div>
+					      <h2>IT / 모바일</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+					</div>
+					<div id="prodline">			
+					<figure class="snip1445">
+					<img src="../../img/middle_03.jpg" alt="sample51" />
+					  <figcaption>
+					    <div>
+					      <h2>국어 / 외국어</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+					</div>
+					<figure class="snip1445">
+					<img src="../../img/middle_04.jpg" alt="sample51" />
+					  <figcaption>
+					    <div>
+					      <h2>만화 / 라이트노벨</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+					<figure class="snip1445">
+					<img src="../../img/middle_05.jpg" alt="sample51" />
+					  <figcaption>
+					    <div>
+					      <h2>사회 / 정치</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+					<figure class="snip1445">
+					<img src="../../img/middle_06.jpg" alt="sample51" />
+					  <figcaption>
+					    <div>
+					      <h2>경제 / 경영</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>												
+					
+			</div>							
+					<script>
+					
+					
+					$(".hover").mouseleave(
+							  function () {
+							    $(this).removeClass("hover");
+							  }
+							);
+					
+					</script>				
+			</div>
+	
+<!-- ================= //cont1 ================= -->
+
+
+<!-- ---------------------------------------------------- -->
+			<div id="section1">
+				<div id="one_section">
+				<div class="section_title">
+					<h3>MD'Pick
+						<span>MD가 선정하는 Best</span>
+							<a href="" class="a">더보기 ▶</a>
+					</h3>
+				</div> 			
+					<div class="today" style="position:relative; margin-bottom:40px;">
+							<div style="clear:both;"></div>
+							 <div class="Bbook-page-wrapper" style="position:relative;">
+							      <div class="BestSeller-slider">
+							        <i class="fas fa-chevron-left prev" style="border:5px solid #000; background-color: #000; opacity: 0.5;"></i>
+							        <i class="fas fa-chevron-right next" style="border:5px solid #000; background-color: #000; opacity: 0.5;"></i>
+							        <div class="BestSeller-wrapper">
+							        
+								<div class="Best_book">
+									<div class="book-img">
+										<class id="imgsrc0">이미지</class>
+									</div>
+									<div class="book-info">
+										<div class="title">
+											<class id="title0">제목</class>
+										</div>
+										<div class="prod_pubGrp">
+											<span class="prod_auth"> <a><class id="author0">작가</class>
+													저 </a>
+											</span> <em class="divi">｜</em> <span class="prod_pub"><a><class
+														id="publisher0">출판사</class></a></span> <em class="divi">｜</em>
+											<div class="price">
+												<em class="price"><class id="price0">가격</class></em>원
+											</div>
+											<div class="prod_bref">
+												<font size="2"><class id="detail0">책설명</class></font>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="Best_book">
+									<div class="book-img">
+										<class id="imgsrc1">이미지</class>
+									</div>
+									<div class="book-info">
+										<div class="title">
+											<class id="title1">제목</class>
+										</div>
+										<div class="prod_pubGrp">
+											<span class="prod_auth"> <a><class id="author1">작가</class>
+													저 </a>
+											</span> <em class="divi">｜</em> <span class="prod_pub"><a><class
+														id="publisher1">출판사</class></a></span> <em class="divi">｜</em>
+											<div class="price">
+												<em class="price"><class id="price1">가격</class></em>원
+											</div>
+											<div class="prod_bref">
+												<font size="2"><class id="detail1">책설명</class></font>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="Best_book">
+									<div class="book-img">
+										<class id="imgsrc2">이미지</class>
+									</div>
+									<div class="book-info">
+										<div class="title">
+											<class id="title2">제목</class>
+										</div>
+										<div class="prod_pubGrp">
+											<span class="prod_auth"> <a><class id="author2">작가</class>
+													저 </a>
+											</span> <em class="divi">｜</em> <span class="prod_pub"><a><class
+														id="publisher2">출판사</class></a></span> <em class="divi">｜</em>
+											<div class="price">
+												<em class="price"><class id="price2">가격</class></em>원
+											</div>
+											<div class="prod_bref">
+												<font size="2"><class id="detail2">책설명</class></font>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="Best_book">
+									<div class="book-img">
+										<class id="imgsrc3">이미지</class>
+									</div>
+									<div class="book-info">
+										<div class="title">
+											<class id="title3">제목</class>
+										</div>
+										<div class="prod_pubGrp">
+											<span class="prod_auth"> <a><class id="author3">작가</class>
+													저 </a>
+											</span> <em class="divi">｜</em> <span class="prod_pub"><a><class
+														id="publisher3">출판사</class></a></span> <em class="divi">｜</em>
+											<div class="price">
+												<em class="price"><class id="price3">가격</class></em>원
+											</div>
+											<div class="prod_bref">
+												<font size="2"><class id="detail3">책설명</class></font>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="Best_book">
+									<div class="book-img">
+										<class id="imgsrc4">이미지</class>
+									</div>
+									<div class="book-info">
+										<div class="title">
+											<class id="title4">제목</class>
+										</div>
+										<div class="prod_pubGrp">
+											<span class="prod_auth"> <a><class id="author4">작가</class>저 </a></span>
+											<em class="divi">｜</em> <span class="prod_pub"><a><class
+														id="publisher4">출판사</class></a></span> <em class="divi">｜</em>
+											<div class="price">
+												<em class="price"><class id="price4">가격</class></em>원
+											</div>
+											<div class="prod_bref">
+												<font size="2"><class id="detail4">책설명</class></font>
+											</div>
+										</div>
+									</div>
+								</div>
+							          
+							        </div>
+							      </div>
+							    </div>
+							</div>								
+						</div>
+					</div>
+					<script>
+					$(".BestSeller-wrapper").slick({
+						  slidesToShow: 1,
+						  slidesToScroll: 1,
+						  autoplay: true,
+						  autoplaySpeed: 4000,
+						  nextArrow:$('.next'),
+						  prevArrow:$('.prev'),
+						});
+					</script>					
+<!-- ================= footer ================= -->                                       	
+	<div id="footer">
+			<div id="footer_info">
+				<div class="container">
+                    <div class="info">
+                        <div class="f_nav">
+                            <ul>
+                                <li><a class="nav-link" href="#"onclick="window.open('html/main.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=750,height=400');">회사소개</a></li>
+                                <li><a href="#">웹이용약관</a></li>
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">위치기반서비스 이용약관</a></li>
+                                <li><a href="#"><strong>청소년보호정책</strong></a></li>
+                                <li><a href="#"><strong>이메일주소무단수집거부</strong></a></li>          	
+                                                      
+                            </ul>
+                        </div>
+                        <address class="f_address">
+                            <span>㈜쇼팅 본사 : 서울특별시 강남구 현주로 508 12-17층(역삼동, 서울상록빌딩) 대표이사: 이상묵</span>
+                            <span>이메일상담 </span>
+                            <span>자주하는 질문 </span>
+                            <span>사업자번호 104-86-56659 </span><br>
+                            <span>대표전화 : 1544-1544	평일 : 09:00~20:00   휴일 : 09:00~1800(점심시간 12:00~13:00제외) </span>
+                            <span>팩스:0502-123123-123213 </span>
+                            <span>이메일: multicampus@multicampus.com </span><br>
+                            <span>COPYRIGHT&copy; 2021 Shotting. All RIGHTS RESERVED</span>
+                        </address>
+                    </div>
+                </div>                
+			</div>
+<!-- ================= // footer-info ================= -->                                       			
+		</div>
+	</div>
+		
+<!-- ================= // footer ================= -->                                       				
+<!-- =================★ //wrap 반드시 확인 !!!!!!!!!!!!! ================= -->                                       				
+</body>
+
+<script>
+	setCookie_buy("", 1);
+	setCookie_cart("", 1);
+	function setCookie_buy(value, exp) {
+		var date = new Date();
+		date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+		document.cookie = "select_product_isbn_buy" + '=' + value + ';expires='
+				+ date.toUTCString() + ';path=/';
+	};
+	function setCookie_cart(value, exp) {
+		var date = new Date();
+		date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+		document.cookie = "select_product_isbn_cart" + '=' + value
+				+ ';expires=' + date.toUTCString() + ';path=/';
+	};
+
+	$(function() {
+		var login = $.cookie('logined');
+		$("#loginArea").html(login);
+	});
+
+	var obj;
+
+	$.post("../../todayBook", {
+
+	}, function(data) {
+
+		obj = JSON.parse(data);
+		list();
+	});
+
+	function list() {
+		for (var i = 0; i < 5; i++) {
+			document.getElementById("title"+i+"").innerHTML = obj[i].title;
+			document.getElementById("author"+i+"").innerHTML = obj[i].author;
+			document.getElementById("price"+i+"").innerHTML = obj[i].price;
+			document.getElementById("publisher"+i+"").innerHTML = obj[i].publisher;
+			var imgsrc = obj[i].imgurl2;
+			document.getElementById("imgsrc"+i+"").innerHTML = "\<img src\= "+imgsrc+" height='200px' width='200px'/>";
+			document.getElementById("detail"+i+"").innerHTML = obj[i].detail;
+		}
+	}
+</script>
+
+
+
+
+</html>
