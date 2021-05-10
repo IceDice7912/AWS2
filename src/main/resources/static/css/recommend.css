@@ -169,24 +169,24 @@
 
 
 /*prod_list_area*/
-#prod_list_area{}
-#prod_list_area ul li {width:90%; display:flex; padding:30px; padding-left:50px; border-bottom:1px solid #eaeaea;}
-#prod_list_area ul .prodSet{width:20%; height:100%;  float:left;}
-#prod_list_area > p > span > a > img{width:125px; height:160px; }
-#prod_list_area .b_rank{position:relative; width:30px; height:30px; text-align:center;display:table-cell;vertical-align:middle; background:#DC143C; top:-163px; }
-#prod_list_area .b_rank > strong{font-family: 'HanaB'; font-size:20px; color:#fff; margin-top:10px; }
-#prod_list_area ul .prod_info{width: 60%; margin: 0 auto;}
-#prod_list_area ul .prod_info .prod_name a{font-size:24px; padding-top:5px; font-family: 'HanaB';  }
-#prod_list_area ul .prod_pubGrp{font-size:16px; font-family: 'HanaA'; color:#aaaaaa; padding-bottom:10px; }
-#prod_list_area ul .prod_info .prod_price{padding-bottom:20px;}
-#prod_list_area ul .prod_info .prod_price .price{font-size:24px; font-family:'HanaA'; font-weight:bold; }
-#prod_list_area ul .prod_info .prod_revised{font-size:14px; font-family:'HanaA'; color:red; padding-bottom:10px;}
-#prod_list_area ul .prod_info .prod_bref{font-size:16px; font-family:'HanaA'; color:#b1b1b1; }
-#prod_list_area ul .prod_btn{ width:15%; float:right; margin: 0 auto;}
-#prod_list_area ul .prod_btn > a {display:block; width: 136px; height: 42px; border-radius: 2px; font-size: 16px; color:#fff; line-height: 42px; text-align: center;}
-#prod_list_area ul .prod_btn > .btn1{width: 136px; background: #666; margin-bottom:5px;}
-#prod_list_area ul .prod_btn > .btn2{background: #0a56a9; margin-bottom:5px;}
-#prod_list_area ul .prod_btn > .btn3{background: #eaeaea; border:1px solid #fafafa; }
+#prod_list{}
+#prod_list ul li {width:90%; display:flex; padding:30px; padding-left:50px; border-bottom:1px solid #eaeaea;}
+#prod_list ul .prodSet{width:20%; height:100%;  float:left;}
+#prod_list > p > span > a > img{width:125px; height:160px; }
+#prod_list .b_rank{position:relative; width:30px; height:30px; text-align:center;display:table-cell;vertical-align:middle; background:#DC143C; top:-163px; }
+#prod_list .b_rank > strong{font-family: 'HanaB'; font-size:20px; color:#fff; margin-top:10px; }
+#prod_list ul .prod_info{width: 60%; margin: 0 auto;}
+#prod_list ul .prod_info .prod_name a{font-size:24px; padding-top:5px; font-family: 'HanaB';  }
+#prod_list ul .prod_pubGrp{font-size:16px; font-family: 'HanaA'; color:#aaaaaa; padding-bottom:10px; }
+#prod_list ul .prod_info .prod_price{padding-bottom:20px;}
+#prod_list ul .prod_info .prod_price .price{font-size:24px; font-family:'HanaA'; font-weight:bold; }
+#prod_list ul .prod_info .prod_revised{font-size:14px; font-family:'HanaA'; color:red; padding-bottom:10px;}
+#prod_list ul .prod_info .prod_bref{font-size:16px; font-family:'HanaA'; color:#b1b1b1; }
+#prod_list ul .prod_btn{ width:15%; float:right; margin: 0 auto;}
+#prod_list ul .prod_btn > a {display:block; width: 136px; height: 42px; border-radius: 2px; font-size: 16px; color:#fff; line-height: 42px; text-align: center;}
+#prod_list ul .prod_btn > .btn1{width: 136px; background: #666; margin-bottom:5px;}
+#prod_list ul .prod_btn > .btn2{background: #0a56a9; margin-bottom:5px;}
+#prod_list ul .prod_btn > .btn3{background: #eaeaea; border:1px solid #fafafa; }
 
 #prod{}
 #prod ul li {width:90%; display:flex; padding:30px; padding-left:50px; border-bottom:1px solid #eaeaea;}

@@ -44,9 +44,11 @@ public class RecommendController {
 		RecommendVO recommendVO = new RecommendVO();
 		
         try {
-			URL url = new URL("http://54.83.91.161:8000/recommend/");
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        	
+			URL url = new URL("http://54.83.91.161:8000/recommend/");	// Django로 만든 recommend url, 8000번 포트 이용
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();			
 			conn.setRequestMethod("POST");
+			
 			conn.setRequestProperty("Content-Type", "application/json; utf-8"); //json형식으로 전송, Request body를 JSON으로 던져줌
 			conn.setRequestProperty("Accept", "application/json");	// Request data를 JSON으로 받도록 설정
 			conn.setDoOutput(true);	// Output Stream을 POST 데이터로 전송
