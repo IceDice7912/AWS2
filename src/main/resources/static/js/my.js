@@ -65,7 +65,7 @@ $("#loginBtn").click(function(){//로그인 처리
 			  		$.cookie("M_name",obj.name,{expires: 1, path: '/' }); // cookie expires in 10 days 
 			  		$.cookie("M_id",id,{expires: 1, path: '/' }); // cookie expires in 10 days 	
 				  	if(obj.name){
-				  		data =name+"님 환영합니다\t<input type='button' value='로그아웃' id='logoutBtn' class='log'>"
+				  		data =name+"님 환영합니다\t<input type='button' value='로그아웃' id='logoutBtn' class='log'><input type='button' value='구매성향보기' id='styleBtn' >"
 				  		$.cookie("logined",data,{expires: 1, path: '/' }); // cookie expires in 10 days 
 				  		window.opener.document.getElementById("loginArea").innerHTML= data;
 				  		alert(obj.name+"님 로그인 되셨습니다.");
@@ -100,6 +100,14 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 });//end 로그아웃 처리
 	
 	
+
+$(document).on("click", "#styleBtn", function(event) { //구매성향 처리
+	window.open('../html/myStyle.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=800,height=350');
+	
+});//end style 처리
+
+
+
 	$("#memberInsertBtn").click(function(){//회원 가입 처리
 		
 		var name=$("#name").val();

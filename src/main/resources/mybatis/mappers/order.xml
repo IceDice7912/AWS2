@@ -12,4 +12,19 @@
 		]]>
 	</insert>
 	
+	
+	<select id="getMyStyle" parameterType="String" resultType="styleVO">
+		<![CDATA[
+			SELECT  CASE WHEN B.CATEGORY IS NULL THEN '기타'
+             ELSE B.CATEGORY
+				END CATEGORY
+		       , COUNT(*) CNT 
+		  FROM ORDERS A
+			 LEFT JOIN BOOK B ON A.TITLE = B.TITLE
+		  WHERE A.ID = #{id}
+		  GROUP BY B.CATEGORY
+		]]>
+	</select>
+	
+	
 </mapper>
